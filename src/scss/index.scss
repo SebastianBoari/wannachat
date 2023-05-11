@@ -1,0 +1,11 @@
+// FONTS (Inter)
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+// MISC
+@import './misc/mixins';
+@import './misc/variables';
+@import './misc/normalize';
+@import './misc/layout';
+// PARTIALS
+@import './partials/modals';
+// PAGES
+@import './pages/home';

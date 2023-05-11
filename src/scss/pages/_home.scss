@@ -1,0 +1,115 @@
+body{
+    background-color: $dark-grey;
+}
+#main-container{
+    min-width: 36rem;
+    max-width: 72rem;
+    border-radius: 6px;
+    padding: $space-8;
+    grid-column: 2/3;
+    margin-top: 64px;
+    @include flex(column, nowrap, start, stretch, $space-16);
+    background-color: $light;
+    #header{
+        padding: $space-16;
+        background-color: $grey;
+        border-radius: 6px;
+        @include grid-container(auto, auto);
+        place-items: center;
+    }
+    #chat{
+        @include grid-container(auto, auto);
+        place-items: center;
+        @include grid-gap(0, $space-16);
+        max-width: 100%;
+        #chat-history{
+            @include flex(column, nowrap, start, stretch, $space-8);
+
+            min-height: 55.8rem;
+            background-color: $grey;
+            width: 100%;
+            border-radius: 6px;
+
+            padding: $space-16;
+
+            .msg{
+                @include flex(column, nowrap, start, stretch, 2px);
+                width: 100%;
+                .msg-owner{
+                    font-size: $font-12;
+                    color: $light;
+                    font-weight: 400;
+                }
+                .msg-bg{
+                    @include flex(row, nowrap, space-between, stretch, 2px);
+                    background-color: $dark-grey;
+                    padding: $space-8;
+                    border-radius: 6px;
+                    .msg-text{
+                        font-size: $font-14;
+                        color: $light;
+                        font-weight: 400;
+                        word-break: break-all;
+                    }
+                    .msg-time{
+                        font-size: $font-10;
+                        color: $light;
+                        font-weight: 400;
+                        align-self: end;
+                        justify-self: end;
+                    }
+                }
+            }
+        }
+        #chat-form{
+            @include flex(row, nowrap, start, stretch, $space-8);
+            width: 100%;
+            #textArea{
+                border-radius: 6px;
+                width: 100%;
+                background-color: $dark-grey;
+                border: solid 1px $grey;
+                padding: $space-8;
+                font-size: $font-14;
+                color: $light;
+                font-weight: 400;
+                font-family: 'Inter', sans-serif;
+            }
+            #textArea:focus{
+                outline: none;
+            }
+            #inputSubmit{
+                display: none;
+            }
+            #inputSubmit-label{
+                cursor: pointer;
+                padding: $space-16;
+                background-color: $dark-grey;
+                border-radius: 50%;
+                transition: all .3s;
+            }
+            #inputSubmit-label:hover{
+                background-color: $dark-grey-strong;
+            }
+        }
+    }
+    #footer{
+        @include grid-container(auto, auto);
+        place-items: center;
+        padding: $space-16;
+        background-color: $grey;
+        border-radius: 6px;
+        #footer-text{
+            font-size: $font-12;
+            font-weight: bold;
+            color: $orange;
+            text-align: center;
+            padding: $space-16;
+
+            transition: all .3s;
+        }
+        #footer-text:hover{
+            color: $dark-grey;
+        }
+    }
+}

@@ -1,0 +1,72 @@
+#modal-container{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(23, 23, 23, 0.75);
+
+    display: grid;
+    place-items: center;
+    #modal{
+        @include flex(column, nowrap, center, stretch, $space-8);
+        background-color: $light;
+        border-radius: 6px;
+        padding: $space-16;
+
+        #modal-header{
+            background-color: $dark-grey;
+            padding: $space-16;
+            border-radius: 6px;
+            @include flex(column, nowrap, center, center, $space-16);
+
+            #header-title{
+                color: $light;
+                font-size: $font-16;
+                font-family: 'Inter', sans-serif;
+                font-weight: 500;
+            }
+        }
+
+        #modal-form{
+            @include flex(column, nowrap, center, center, $space-8);
+            #inputNickName-label{
+                p{
+                    color: $dark-grey;
+                    font-size: $font-14;
+                    font-family: 'Inter', sans-serif;
+                    font-weight: 500;
+                }
+            }
+            #inputNickName{
+                background-color: $dark-grey;
+                padding: $space-16;
+                outline: none;
+                border-radius: 6px;
+                border: solid 1px $grey;
+                color: $light;
+                font-size: $font-16;
+                font-family: 'Inter', sans-serif;
+                font-weight: 500;
+                width: 100%;
+                text-align: center;
+            }
+            #submitNickName{
+                padding:  $space-16;
+                border: solid 1px $grey;
+                border-radius: 6px;
+                background-color: $dark-grey;
+
+                color: $light;
+                font-size: $font-14;
+                font-family: 'Inter', sans-serif;
+                font-weight: 500;
+
+                cursor: pointer;
+                transition: all .3s;
+            }
+            #submitNickName:hover{
+                background-color: $dark-grey-strong;
+                color: $orange;
+            }
+        }
+    }
+}
