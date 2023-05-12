@@ -1,4 +1,9 @@
-![Banner de WannaChat!](./src/public/assets/readme/banner-wanna-chat.png)
+[![Banner de WannaChat!](./src/public/assets/readme/banner-wanna-chat.png)](https://fuchsia-scintillating-drawbridge.glitch.me)
+
+*Haz clic en el banner ubicado en la parte superior para ser redirigido al proyecto desplegado en Glitch.com*
+
+------------
+
 
 # WannaChat
 WannaChat es una aplicación de chat en tiempo real desarrollada como proyecto de práctica para demostrar mis habilidades actuales de desarrollo. Permite a los usuarios comunicarse a través de mensajes de texto utilizando websockets.
@@ -28,9 +33,9 @@ WannaChat es una aplicación de chat en tiempo real desarrollada como proyecto d
 
 ### Tecnologías utilizadas
 1. Node.js
-2. Express
+2. ExpressJS
 3. Socket.io
-4. Express Handlebars
+4. Handlebars
 5. SASS
 6. JavaScript Vanilla ES19
 
