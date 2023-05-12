@@ -1,115 +1,166 @@
-body{
-    background-color: $dark-grey;
-}
 #main-container{
     min-width: 36rem;
     max-width: 72rem;
     border-radius: 6px;
-    padding: $space-8;
     grid-column: 2/3;
     margin-top: 64px;
-    @include flex(column, nowrap, start, stretch, $space-16);
-    background-color: $light;
-    #header{
-        padding: $space-16;
-        background-color: $grey;
+    -webkit-box-shadow: 0px 0px 18px 12px rgba(38,39,48,0.9);
+    -moz-box-shadow: 0px 0px 18px 12px rgba(38,39,48,0.9);
+    box-shadow: 0px 0px 18px 12px rgba(38,39,48,0.9);
+    background-image: url('https://images.unsplash.com/photo-1591865986097-77712322981b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=711&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    #glass-container{
+        @include flex(column, nowrap, start, stretch, $space-16);
+        background-color: $light-op;
+        padding: $space-8;
         border-radius: 6px;
-        @include grid-container(auto, auto);
-        place-items: center;
-    }
-    #chat{
-        @include grid-container(auto, auto);
-        place-items: center;
-        @include grid-gap(0, $space-16);
-        max-width: 100%;
-        #chat-history{
-            @include flex(column, nowrap, start, stretch, $space-8);
-
-            min-height: 55.8rem;
-            background-color: $grey;
-            width: 100%;
-            border-radius: 6px;
-
+        #header{
+            @include grid-container(auto, auto);
             padding: $space-16;
-
-            .msg{
-                @include flex(column, nowrap, start, stretch, 2px);
+            border-radius: 6px;
+            place-items: center;
+            background-color: $grey;
+        }
+        #chat{
+            @include grid-container(auto, auto);
+            @include grid-gap(0, $space-16);
+            place-items: center;
+            max-width: 100%;
+            #chat-history{
+                @include flex(column, nowrap, start, stretch, $space-8);
+                min-height: 55.8rem;
+                min-width: 55.8rem;
+                max-height: 55.8rem;
+                max-width: 55.8rem;
                 width: 100%;
-                .msg-owner{
-                    font-size: $font-12;
+                border-radius: 6px;
+                padding: $space-16;
+                overflow: auto;
+                background-color: $grey;
+                .msg{
+                    @include flex(column, nowrap, start, stretch, 2px);
+                    width: 100%;
+                    .msg-owner{
+                        font-size: $font-12;
+                        color: $light;
+                        font-weight: 400;
+                    }
+                    .msg-bg{
+                        @include flex(row, nowrap, space-between, stretch, 2px);
+                        background-color: $dark-grey;
+                        padding: $space-8;
+                        border-radius: 6px;
+                        .msg-text{
+                            font-size: $font-14;
+                            color: $light;
+                            font-weight: 400;
+                            word-break: break-all;
+                        }
+                        .msg-time{
+                            font-size: $font-10;
+                            color: $light;
+                            font-weight: 400;
+                            align-self: end;
+                            justify-self: end;
+                        }
+                    }
+                }
+                .msg-user{
+                    .msg-owner{
+                        color: $orange;
+                    }
+                    .msg-bg{
+                        background-color: $dark-grey-strong;
+                    }
+                }
+            }
+            // Scroll styles
+            #chat-history::-webkit-scrollbar {
+                width: $space-8;   
+                border-radius: 6px; 
+            }
+            #chat-history::-webkit-scrollbar-button {
+                height: 100%;
+            }
+            #chat-history::-webkit-scrollbar-track-piece {
+                background: $grey;
+                border-radius: 6px;
+            }
+            #chat-history::-webkit-scrollbar-thumb {
+                background: $dark-grey;
+                border-radius: 6px;
+            }
+            #chat-form{
+                @include flex(row, nowrap, start, stretch, $space-8);
+                width: 100%;
+                #textArea{
+                    border-radius: 6px;
+                    width: 100%;
+                    background-color: $dark-grey;
+                    border: solid 1px $grey;
+                    padding: $space-8;
+                    font-size: $font-14;
                     color: $light;
                     font-weight: 400;
+                    font-family: 'Inter', sans-serif;
+
+                    transition: all .3s;
                 }
-                .msg-bg{
-                    @include flex(row, nowrap, space-between, stretch, 2px);
-                    background-color: $dark-grey;
-                    padding: $space-8;
+                // Scroll styles
+                #textArea::-webkit-scrollbar {
+                    width: $space-8;   
+                    border-radius: 6px; 
+                }
+                #textArea::-webkit-scrollbar-button {
+                    height: 100%;
+                }
+                #textArea::-webkit-scrollbar-track-piece {
+                    background: $grey;
                     border-radius: 6px;
-                    .msg-text{
-                        font-size: $font-14;
-                        color: $light;
-                        font-weight: 400;
-                        word-break: break-all;
-                    }
-                    .msg-time{
-                        font-size: $font-10;
-                        color: $light;
-                        font-weight: 400;
-                        align-self: end;
-                        justify-self: end;
-                    }
+                }
+                #textArea::-webkit-scrollbar-thumb {
+                    background: $dark-grey;
+                    border-radius: 6px;
+                }
+                #textArea:focus{
+                    outline: none;
+                    background-color: $dark-grey-strong;
+                }
+                #inputSubmit{
+                    display: none;
+                }
+                #inputSubmit-label{
+                    cursor: pointer;
+                    padding: $space-16;
+                    background-color: $dark-grey;
+                    border-radius: 50%;
+                    transition: all .3s;
+                }
+                #inputSubmit-label:hover{
+                    background-color: $dark-grey-strong;
                 }
             }
         }
-        #chat-form{
-            @include flex(row, nowrap, start, stretch, $space-8);
-            width: 100%;
-            #textArea{
-                border-radius: 6px;
-                width: 100%;
-                background-color: $dark-grey;
-                border: solid 1px $grey;
-                padding: $space-8;
-                font-size: $font-14;
-                color: $light;
-                font-weight: 400;
-                font-family: 'Inter', sans-serif;
-            }
-            #textArea:focus{
-                outline: none;
-            }
-            #inputSubmit{
-                display: none;
-            }
-            #inputSubmit-label{
-                cursor: pointer;
+        #footer{
+            @include grid-container(auto, auto);
+            place-items: center;
+            padding: $space-16;
+            border-radius: 6px;
+            background-color: $grey;
+            #footer-text{
+                font-size: $font-12;
+                font-weight: bold;
+                color: $orange;
+                text-align: center;
                 padding: $space-16;
-                background-color: $dark-grey;
-                border-radius: 50%;
+
                 transition: all .3s;
             }
-            #inputSubmit-label:hover{
-                background-color: $dark-grey-strong;
+            #footer-text:hover{
+                color: $dark-grey;
             }
-        }
-    }
-    #footer{
-        @include grid-container(auto, auto);
-        place-items: center;
-        padding: $space-16;
-        background-color: $grey;
-        border-radius: 6px;
-        #footer-text{
-            font-size: $font-12;
-            font-weight: bold;
-            color: $orange;
-            text-align: center;
-            padding: $space-16;
-
-            transition: all .3s;
-        }
-        #footer-text:hover{
-            color: $dark-grey;
         }
     }
 }

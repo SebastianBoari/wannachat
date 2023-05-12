@@ -45,6 +45,13 @@ modalForm.addEventListener('submit', (e) => {
 // Bring chat history on connection:
 const historyContainer = document.getElementById('chat-history');
 
+const autoScroll = () => {
+    historyContainer.scrollTo({
+        top: historyContainer.scrollHeight,
+        behavior: 'smooth'
+    });
+};
+  
 socket.on('history', (data) => {
     data.forEach((msg) => {
         let currentMsg = `
@@ -58,6 +65,7 @@ socket.on('history', (data) => {
 
         historyContainer.innerHTML += currentMsg;
     });
+    autoScroll();
 });
 
 // Send message workflow:
@@ -107,14 +115,30 @@ inputTextArea.addEventListener('keydown', (e) => {
 
 // Recive latest message:
 socket.on('currentMessage', (msg) => {
-    let currentMsg = `
-    <div class="msg">
-        <h4 class="msg-owner">${msg.user} dice: </h4> 
-        <div class="msg-bg">
-            <p class="msg-text">${msg.message}</p> 
-            <p class="msg-time">${msg.time}</p>
-        </div>
-    </div>`;
+    if(msg.user === nickName){
+        let currentMsg = `
+        <div class="msg msg-user">
+            <h4 class="msg-owner">${msg.user} dice: </h4> 
+            <div class="msg-bg">
+                <p class="msg-text">${msg.message}</p> 
+                <p class="msg-time">${msg.time}</p>
+            </div>
+        </div>`;
+    
+        historyContainer.innerHTML += currentMsg;
 
-    historyContainer.innerHTML += currentMsg;
+        autoScroll();
+    } else {
+
+        let currentMsg = `
+        <div class="msg">
+            <h4 class="msg-owner">${msg.user} dice: </h4> 
+            <div class="msg-bg">
+                <p class="msg-text">${msg.message}</p> 
+                <p class="msg-time">${msg.time}</p>
+            </div>
+        </div>`;
+    
+        historyContainer.innerHTML += currentMsg;
+    };
 });

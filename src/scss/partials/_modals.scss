@@ -2,8 +2,12 @@
     width: 100vw;
     height: 100vh;
     position: absolute;
-    background-color: rgba(23, 23, 23, 0.75);
-
+    z-index: 999;
+    background: rgba(77, 80, 97, 0.26);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     display: grid;
     place-items: center;
     #modal{
@@ -11,13 +15,11 @@
         background-color: $light;
         border-radius: 6px;
         padding: $space-16;
-
         #modal-header{
+            @include flex(column, nowrap, center, center, $space-16);
             background-color: $dark-grey;
             padding: $space-16;
             border-radius: 6px;
-            @include flex(column, nowrap, center, center, $space-16);
-
             #header-title{
                 color: $light;
                 font-size: $font-16;
@@ -25,7 +27,6 @@
                 font-weight: 500;
             }
         }
-
         #modal-form{
             @include flex(column, nowrap, center, center, $space-8);
             #inputNickName-label{
