@@ -20,7 +20,6 @@ const sendUser = async (user) => {
         } else {
             toggleModal();
             username = res;
-            alert(`Welcome ${res}!`);
             inputTextArea.disabled = false;
         };
     });
