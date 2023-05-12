@@ -1,12 +1,3 @@
-const getMoment = () => {
-    const date = new Date();
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    if(minutes < 10) minutes = '0' + minutes;
-    const currentMoment = hours + ':' + minutes;
-    return currentMoment;
-};
-
 class MessageManager {
     
     #messages;
@@ -30,12 +21,12 @@ class MessageManager {
             return formattedMsg;
         };
     };
-    createMessage(user, msg) {
+    createMessage(user, msg, time) {
         if (this.validateMessage(msg)) {
             const newMessage = {
                 user: user,
                 message: this.validateMessage(msg), // Corrección aquí
-                time: getMoment()
+                time: time
             };
             this.#addMessage(newMessage);
             return newMessage; 

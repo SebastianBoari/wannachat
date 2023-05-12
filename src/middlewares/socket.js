@@ -24,7 +24,7 @@ module.exports = function(socketServer) {
         // Recive messages
         socket.on('message', (res) => {
             // Emite el mensaje a todos los sockets conectados
-            socketServer.emit('currentMessage', messageManager.createMessage(res.user, res.message));
+            socketServer.emit('currentMessage', messageManager.createMessage(res.user, res.message, res.time));
         });
 
         next();

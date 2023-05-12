@@ -7,10 +7,19 @@ const modalForm = document.getElementById('modal-form');
 const inputUsername = document.getElementById('inputNickName');
 const modal = document.getElementById('modal-container');
 const historyContainer = document.getElementById('chat-history');
-// Simple user nickname validation:
+// Utils
+const getMoment = () => {
+    const date = new Date();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    if(minutes < 10) minutes = '0' + minutes;
+    const currentMoment = hours + ':' + minutes;
+    return currentMoment;
+};
 const toggleModal = () => {
     modal.classList.toggle('display-none');
 };
+// Simple user nickname validation:
 let username = '';
 const sendUser = async (user) => {
     await socket.emit('username', user);
@@ -58,7 +67,8 @@ const sendMessage = (username) => {
     const currentMessage = inputTextArea.value;
     socket.emit('message', {
         user: username,
-        message: currentMessage
+        message: currentMessage,
+        time: getMoment()
     });
 };
 // Listeners
