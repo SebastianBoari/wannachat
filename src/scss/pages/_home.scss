@@ -1,9 +1,9 @@
 #main-container{
-    min-width: 36rem;
-    max-width: 72rem;
+    width: 33vw;
+    min-width: 41rem;
     border-radius: 6px;
     grid-column: 2/3;
-    margin-top: 64px;
+    grid-row: 2/3;
     -webkit-box-shadow: 0px 0px 18px 12px rgba(38,39,48,0.9);
     -moz-box-shadow: 0px 0px 18px 12px rgba(38,39,48,0.9);
     box-shadow: 0px 0px 18px 12px rgba(38,39,48,0.9);
@@ -30,10 +30,8 @@
             max-width: 100%;
             #chat-history{
                 @include flex(column, nowrap, start, stretch, $space-8);
-                min-height: 55.8rem;
-                min-width: 55.8rem;
-                max-height: 55.8rem;
-                max-width: 55.8rem;
+                min-height: 60vh;
+                max-height: 60vh;
                 width: 100%;
                 border-radius: 6px;
                 padding: $space-16;
@@ -163,4 +161,14 @@
             }
         }
     }
+}
+@media (max-width: 576px){
+    #main-container{
+        min-width: 90vw;
+    } 
+}
+@media (max-width: 210px){
+    #main-container{
+        min-width: 174px;
+    } 
 }
