@@ -1,32 +1,33 @@
 // Import and instance classes
-const UserManager = require('../classes/UserManager');
-const userManager = new UserManager();
-const MessageManager = require('../classes/MessageManager');
-const messageManager = new MessageManager();
+import UserManager from '../classes/UserManager.js'
+const userManager = new UserManager()
+
+import MessageManager from '../classes/MessageManager.js'
+const messageManager = new MessageManager()
+
 // Socket server
-module.exports = function(socketServer) {
+function createSocketMiddleware(socketServer) {
 
-    return function(socket, next) {
-        console.log(`New client: ${socket.id}`);
+	return function (socket, next) {
+		// Send previous messages
+		socket.emit('history', messageManager.getMessages())
 
-        // Send previous messages
-        socket.emit('history', messageManager.getMessages());
+		// User handler
+		socket.on('username', (user) => {
+			try {
+				socket.emit('username', userManager.createUser(user))
+			} catch (error) {
+				socket.emit('username', error.message)
+			}
+		})
 
-        // User handler
-        socket.on('username', (user) => {
-            try {
-                socket.emit('username', userManager.createUser(user));
-            } catch (error) {
-                socket.emit('username', error.message);
-            };
-        });
+		// Recive messages
+		socket.on('message', (res) => {
+			socketServer.emit('currentMessage', messageManager.createMessage(res.user, res.message, res.time))
+		})
+		
+		next()
+	}
+}
 
-        // Recive messages
-        socket.on('message', (res) => {
-            // Emite el mensaje a todos los sockets conectados
-            socketServer.emit('currentMessage', messageManager.createMessage(res.user, res.message, res.time));
-        });
-
-        next();
-    };
-};
+export { createSocketMiddleware }

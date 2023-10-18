@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/app.js",
+  "type": "module",
   "scripts": {
     "start": "node .",
     "dev": "nodemon .",
@@ -19,5 +20,8 @@
   },
   "engines": {
     "node": "v18.16.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.51.0"
   }
 }

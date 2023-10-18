@@ -1,24 +1,26 @@
 // Dependencies
-const express = require('express');
-const app = express();
-const { Server } = require('socket.io');
-const viewsRouter = require('./routes/views.router');
-const handlebars = require('express-handlebars');
+import express from 'express'
+import handlebars from 'express-handlebars'
+import { Server } from 'socket.io'
+import viewsRouter from './routes/views.router.js'
+import { createSocketMiddleware } from './middlewares/socket.js'
+
+const app = express()
+
 // Handlebars config
-app.engine('handlebars', handlebars.engine());
-app.set('views',  './src/views');
-app.set('view engine', 'handlebars');
+app.engine('handlebars', handlebars.engine())
+app.set('views', './src/views')
+app.set('view engine', 'handlebars')
+
 // Public directory
-app.use(express.static('./src/public'));
+app.use(express.static('./src/public'))
+
 // Views middleware
-app.use('/', viewsRouter);
-// Server config
+app.use('/', viewsRouter)
+
 // Http server
-const port = 8080;
-const httpServer = app.listen(port, () => {
-    console.log(`Server up on port ${port}`)
-});
+const httpServer = app.listen(8080, () => console.log('server up on port 8080'))
+
 // Socket server
-const socketServer = new Server(httpServer);
-const socketMiddleware = require('./middlewares/socket')(socketServer);
-socketServer.use(socketMiddleware);
+const socketServer = new Server(httpServer)
+socketServer.use(createSocketMiddleware(socketServer))
