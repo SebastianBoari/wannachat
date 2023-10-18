@@ -15,7 +15,11 @@ function createSocketMiddleware(socketServer) {
 		// User handler
 		socket.on('username', (user) => {
 			try {
-				socket.emit('username', userManager.createUser(user))
+				const newUser = {
+					username: user
+				}
+
+				socket.emit('username', userManager.createUser(newUser))
 			} catch (error) {
 				socket.emit('username', error.message)
 			}
