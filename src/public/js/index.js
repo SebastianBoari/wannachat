@@ -12,33 +12,53 @@ const historyContainer = document.getElementById('chat-history')
 // Utils
 const getMoment = () => {
 	const date = new Date()
+
 	let hours = date.getHours()
+
 	let minutes = date.getMinutes()
+
 	if(minutes < 10) minutes = '0' + minutes
+
 	const currentMoment = hours + ':' + minutes
+
 	return currentMoment
 }
+
 const toggleModal = () => {
 	modal.classList.toggle('display-none')
 }
 
 // Simple user nickname validation:
-let username = ''
+let username = JSON.parse(localStorage.getItem('wannauser')) || ''
+
 const sendUser = async (user) => {
 	await socket.emit('username', user)
-	await socket.on('username', (res) => {
-		if(res.includes('Error')){
-			alert(`${res}`)
+
+	await socket.on('username', (response) => {
+
+		if(response.includes('Error')){
+			alert(`${response}`)
 		} else {
 			toggleModal()
-			username = res
+
+			username = response
+			
+			localStorage.setItem('wannauser', JSON.stringify(username))
+
 			inputTextArea.disabled = false
 		}
 	})
 }
+
+if(username.length > 0){
+	sendUser(username)
+}
+
 modalForm.addEventListener('submit', (e) => {
 	e.preventDefault()
+
 	sendUser(inputUsername.value)
+	
 	modalForm.reset()
 })
 
