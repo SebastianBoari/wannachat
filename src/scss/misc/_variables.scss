@@ -1,17 +1,41 @@
 // SPACE
+$space-64: 6.4rem;
 $space-32: 3.2rem;
+$space-24: 2.4rem;
 $space-16: 1.6rem;
 $space-8: 0.8rem;
+
 // FONT-SIZE
 $font-16: 1.6em;
 $font-14: 1.4em;
 $font-12: 1.2em;
 $font-10: 1em;
+
 // COLOR
-$dark-grey: #30323D;
-$dark-grey-strong: #262730;
-$grey: #4D5061;
-$grey-strong: #444655;
-$light: #CDD1C4;
-$orange: #FF521B;
-$light-op: rgba(205, 209, 196, 0.60);
+// $dark-grey: #30323D;
+// $dark-grey-strong: #262730;
+// $grey: #4D5061;
+// $grey-strong: #444655;
+// $grey: lightgray;
+// $grey-strong: silver;
+// $light: #CDD1C4;
+// $light: white;
+// $orange: #FF521B;
+// $orange: darkorange;
+// $light-op: rgba(205, 209, 196, 0.60);
+// $success: seagreen;
+// $success-strong: rgb(42, 124, 77);
+// $danger: firebrick;
+// $danger-strong: brown;
+
+$white: rgba(255, 255, 255, 1);
+
+$yellow: rgba(244, 176, 44, 1);
+
+$blue: rgba(30, 113, 255, 1);
+$darkblue: rgba(3, 86, 205, 1);
+
+$darkgrey: rgba(59, 69, 77, 1);
+$grey: rgba(59, 69, 77, 0.25);
+
+$greyblue: rgba(233, 241, 255, 1);

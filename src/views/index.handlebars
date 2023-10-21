@@ -1,42 +1,66 @@
-<div id="modal-container">
-    <article id="modal">
-        <header id="modal-header">
-            <h2 id="header-title">Welcome to WannaChat!</h2>
-            <figure id="header-figure">
-                <img src="./assets/wannachat-logo.png" alt="">
+<div id="modal-container" class="modal_container">
+    <article class="modal">
+        <header class="modal_header">
+            <figure class="modal_header-figure">
+                <img class="figure_image" src="./assets/wannachat-logo.png" alt="Brand logo.">
             </figure>
         </header>
-        <form action="/" id="modal-form">
-            <label for="inputNickName" id="inputNickName-label">
-                <p>Enter a nickname between 4 and 24 characters.</p>
+
+
+        <form id="modal-form" class="modal_form" action="/">
+            <label for="inputNickName" id="inputNickName-label" class="modal_form-label">
+                <p class="label_description">Enter a nickname between 4 and 24 characters.</p>
             </label>
-            <input type="text" placeholder="2006AngryTeenagerAtForum" id="inputNickName">
-            <input type="submit" id="submitNickName" value="Ready!">
+
+            <input type="text" placeholder="nickname" id="inputNickName" class="modal_form-input">
+
+            <div class="modal_form-buttons">
+                <button type="button" id="cancelNickname" class="button button-cancel">Cancel</button>
+                <input type="submit" id="submitNickName" value="Confirm" class="button button-submit">
+            </div>
         </form>
     </article>
 </div>
-<main id="main-container">
-    <div id="glass-container">
-        <header id="header">
-            <figure id="heade-figure">
-                <img src="./assets/wannachat-logo.png" alt="Wanna chat logo">
+
+<main class="container">
+
+    <div class="container-main">
+
+        <header class="header">
+            <figure class="header_figure">
+                <img src="./assets/wannachat-logo.png" alt="Wanna chat logo" class="header_figure-image">
             </figure>
         </header>
-        <section id="chat">
-            <article id="chat-history">
-            </article>
-            <form id="chat-form" action="/">    
-                <textarea id="textArea" name="text"></textarea>
+
+        <article class="chat">
+            <section id="chat-history" class="chat_history">
+
+            </section>
+
+            <form id="chat-form" class="chat_form" action="/">
+                <textarea id="textArea" name="text" class="chat_form-textarea">
+                </textarea>
+
                 <input type="submit" name="submit" id="inputSubmit">
+
                 <label for="inputSubmit" id="inputSubmit-label">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ff521b" d="m3.4 20.4l17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12L2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="m3.4 20.4l17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12L2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z" />
+                    </svg>
                 </label>
+
             </form>
-        </section>
+
+        </article>
+
         <footer id="footer">
-            <a href="https://github.com/SebastianBoari"><p id="footer-text">Sebastian Boari Dev</p></a>
+            <a href="https://github.com/SebastianBoari">
+                <p id="footer-text">SebastianBoari Dev.</p>
+            </a>
         </footer>
     </div>
+
 </main>
 <script src="/socket.io/socket.io.js"></script>
 <script src="./js/index.js"></script>

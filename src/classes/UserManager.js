@@ -2,37 +2,37 @@ class UserManager {
 	#user
 
 	constructor() {
-		this.#user = {}
+		this.#user = ''
 	}
 
 	getUsers() {
 		return this.#user
 	}
 
-	#addUser(newUser) {
-		this.#user = newUser
+	#addUser(user) {
+		this.#user = user
 	}
 
 	#validateUser(username) {
 		const formattedUsername = username.trim()
 
 		if (formattedUsername.length > 24) {
-			throw new Error('Error: Nickname too long, not more than 24 characters.')
+			return { 'status': 'error', 'message': 'nickname too long' }
 		} else if (formattedUsername.length < 4) {
-			throw new Error('Error: Nickname too short, at least 4 characters.')
+			return { 'status': 'error', 'message': 'nickname too short, at least 4 characters.' }
 		} else {
-			return formattedUsername
+			return { 'status': 'success' }
 		}
 	}
 
-	createUser(newUser) {
-		if (this.#validateUser(newUser.username)) {
+	createUser(username) {
+		const validation = this.#validateUser(username)
 
-			this.#addUser(newUser)
-			
-			return newUser.username
+		if (validation.status === 'success') {
+			this.#addUser(username)
+			return username
 		} else {
-			throw new Error('Error: A fatal error has occurred')
+			throw new Error(validation.message)
 		}
 	}
 }

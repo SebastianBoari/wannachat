@@ -1,43 +1,49 @@
-#modal-container{
+.modal_container {
     width: 100vw;
     height: 100vh;
+
     position: absolute;
     z-index: 999;
-    background: rgba(77, 80, 97, 0.26);
+
+    background: rgba(77, 80, 97, 0.2);
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+
     display: grid;
     place-items: center;
-    #modal{
-        @include flex(column, nowrap, center, stretch, $space-8);
+
+    .modal {
+        @include flex(column, nowrap, center, stretch, $space-24);
         background-color: $light;
         border-radius: 6px;
         padding: $space-16;
-        #modal-header{
+
+        &_header {
             @include flex(column, nowrap, center, center, $space-16);
             background-color: $dark-grey;
             padding: $space-16;
             border-radius: 6px;
-            #header-title{
-                color: $light;
-                font-size: $font-16;
-                font-family: 'Inter', sans-serif;
-                font-weight: 500;
+
+            &-figure {
+                .figure_image {}
             }
         }
-        #modal-form{
-            @include flex(column, nowrap, center, center, $space-8);
-            #inputNickName-label{
-                p{
+
+        &_form {
+            @include flex(column, nowrap, center, center, $space-16);
+
+            &-label {
+                .label_description {
                     color: $dark-grey;
                     font-size: $font-14;
                     font-family: 'Inter', sans-serif;
                     font-weight: 500;
                 }
             }
-            #inputNickName{
+
+            &-input {
                 background-color: $dark-grey;
                 padding: $space-16;
                 outline: none;
@@ -50,23 +56,51 @@
                 width: 100%;
                 text-align: center;
             }
-            #submitNickName{
-                padding:  $space-16;
-                border: solid 1px $grey;
-                border-radius: 6px;
-                background-color: $dark-grey;
 
-                color: $light;
-                font-size: $font-14;
-                font-family: 'Inter', sans-serif;
-                font-weight: 500;
+            &-buttons {
+                @include flex(row, nowrap, space-between, center, $space-8);
+                width: 100%;
 
-                cursor: pointer;
-                transition: all .3s;
-            }
-            #submitNickName:hover{
-                background-color: $dark-grey-strong;
-                color: $orange;
+                .button {
+                    padding: $space-16 $space-24;
+                    border: none;
+                    border-radius: 6px;
+
+
+                    color: $light;
+                    font-size: $font-14;
+                    font-family: 'Inter', sans-serif;
+                    font-weight: 500;
+
+                    cursor: pointer;
+                    transition: all .2s ease-in;
+
+                    &:hover {}
+
+                    &:focus {
+                        outline: solid 2px $dark-grey-strong;
+                    }
+
+                    &-submit {
+                        background: $success;
+
+                        &:hover {
+                            background-color: $success-strong;
+                        }
+
+                        &:focus {}
+                    }
+
+                    &-cancel {
+                        background: $danger;
+
+                        &:hover {
+                            background-color: $danger-strong;
+                        }
+
+                        &:focus {}
+                    }
+                }
             }
         }
     }

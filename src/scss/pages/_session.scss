@@ -1,0 +1,207 @@
+.session_container {
+    height: 100vh;
+    width: 100vw;
+
+    display: grid;
+    place-items: center;
+
+    background: $darkgrey;
+
+    .session {
+        @include flex(row, nowrap, space-between, center, $space-64);
+        flex-grow: 1;
+
+        padding: $space-32;
+        background: $white;
+        border-radius: $space-16;
+
+        &_text {
+            @include flex(column, nowrap, space-between, center, $space-32);
+            height: 58.9rem;
+            width: 38.2rem;
+
+            padding: $space-32;
+            border-radius: 6px;
+
+            // NORMAL SHADOW
+            -webkit-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
+            -moz-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
+            box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
+
+            &-header {
+                @include flex(column, nowrap, space-between, center, $space-32);
+
+                .header_title {
+                    font-weight: 500;
+                    font-size: $font-12;
+                    color: $grey;
+                }
+
+                .header_choose {
+                    @include flex(row, nowrap, space-between, center, 0);
+                    background: $blue;
+                    padding: 4px;
+                    border-radius: 50px;
+
+                    &-label {
+                        cursor: pointer;
+
+                        .label_description {
+                            color: $white;
+                            font-weight: 600;
+                            font-size: $font-12;
+                            padding: $space-8 $space-16;
+                        }
+
+                        .input_checked {
+                            background: $white;
+                            color: $darkgrey;
+                            border-radius: 50px;
+
+
+                            // FOCUS SHADOW
+                            -webkit-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.2);
+                            -moz-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.2);
+                            box-shadow: 1px 4px 4px 0px rgba(0, 0, 0, 0.2);
+                        }
+
+                        #signIn {
+                            display: none;
+                        }
+
+                        #logIn {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            &-form {
+                @include flex(column, nowrap, space-between, center, $space-16);
+                height: 100%;
+
+                .label_container {
+                    @include flex(column, nowrap, flex-start, center, $space-16);
+                    height: 100%;
+
+                    .form_label {
+                        border-radius: 6px;
+
+                        .label_description {
+                            padding: 0 $space-8;
+                            color: $darkgrey;
+                        }
+
+                        &-input {
+                            padding: 0 $space-16;
+                            width: 28rem;
+                            height: 3.2rem;
+
+                            border: none;
+                            border-radius: 6px;
+
+                            font-family: 'Poppins', sans-serif;
+                            color: $darkgrey;
+                            font-size: $font-14;
+
+                            // NORMAL SHADOW
+                            -webkit-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
+                            -moz-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
+                            box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
+
+                            transition: all .2s ease-in;
+
+                            &:focus {
+                                outline: none;
+                                // FOCUS SHADOW
+                                -webkit-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.2);
+                                -moz-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.2);
+                                box-shadow: 1px 4px 4px 0px rgba(0, 0, 0, 0.2);
+                            }
+
+                            &::placeholder {
+                                color: $grey;
+                            }
+
+                        }
+                    }
+                }
+
+                .form_bottom {
+                    @include flex(row, nowrap, space-between, center, $space-16);
+
+                    &-text {
+                        font-family: 'Poppins', sans-serif;
+                        font-weight: 500;
+                        font-size: $font-12;
+
+                        color: $darkgrey;
+
+                        .text_link {
+                            font-family: 'Poppins', sans-serif;
+                            font-weight: 500;
+
+                            background: rgb(0, 0, 0, 0);
+                            color: $blue;
+                            cursor: pointer;
+                            border: none;
+
+                            transition: all .2s ease-in;
+
+                            &:hover {
+                                color: $darkblue;
+                            }
+
+                            &:focus {
+                                color: $darkblue;
+                                outline: none;
+                            }
+                        }
+                    }
+
+                    &-submit {
+                        padding: $space-8 $space-16;
+
+                        background: $blue;
+                        color: $white;
+
+                        font-family: 'Poppins', sans-serif;
+                        font-size: $font-14;
+                        font-weight: 500;
+
+                        border: none;
+                        border-radius: 50px;
+
+                        cursor: pointer;
+                        transition: all .2s ease-in;
+
+                        &:hover {
+                            background: $darkblue;
+                        }
+
+                        &:focus {
+                            outline: none;
+                            background: $darkblue;
+                            // FOCUS SHADOW
+                            -webkit-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.2);
+                            -moz-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.2);
+                            box-shadow: 1px 4px 4px 0px rgba(0, 0, 0, 0.2);
+                        }
+                    }
+                }
+            }
+        }
+
+        .session_figure {
+            position: relative;
+
+            .session_figure-image {}
+
+            .session_figure-icon {
+                position: absolute;
+                bottom: $space-16;
+                right: $space-16;
+            }
+        }
+    }
+}

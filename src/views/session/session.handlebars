@@ -1,0 +1,94 @@
+<div class="session_container">
+
+    <article class="session">
+        <section class="session_text">
+            <header class="session_text-header">
+                <h1 class="header_title">Wannachat supported by Delfos</h1>
+
+                <div class="header_choose">
+                    <label for="signIn" class="header_choose-label">
+                        <p class="label_description input_checked" id="signInToggler">Sign In</p>
+                        <input type="radio" name="session" id="signIn">
+                    </label>
+
+                    <label for="logIn" class="header_choose-label">
+                        <span class="label_description" id="logInToggler">Log In</span>
+                        <input type="radio" name="session" id="logIn">
+                    </label>
+                </div>
+            </header>
+
+            <form action="/" class="session_text-form" id="signIn-form">
+                <div class="label_container">
+                    <label for="name" class="form_label">
+                        <input type="text" name="name" id="name" class="form_label-input" placeholder="name">
+                    </label>
+
+                    <label for="surname" class="form_label">
+                        <input type="text" name="surname" id="surname" class="form_label-input" placeholder="surname">
+                    </label>
+
+                    <label for="email" class="form_label">
+                        <input type="email" name="email" id="email" class="form_label-input" placeholder="email">
+                    </label>
+
+                    <label for="birthday" class="form_label">
+                        <p class="label_description">Date of Birth</p>
+                        <input type="date" name="birthday" id="birthday" class="form_label-input">
+                    </label>
+
+                    <label for="password" class="form_label">
+                        <input type="password" name="userpassword" id="password" class="form_label-input"
+                            placeholder="password">
+                    </label>
+
+                    <label for="repeat-password" class="form_label">
+                        <input type="password" name="repeat-password" id="repeat-password" class="form_label-input"
+                            placeholder="repeat password">
+                    </label>
+                </div>
+
+                <div class="form_bottom">
+                    <p class="form_bottom-text">Are you already registered? <button id="logIn-button"
+                            class="text_link">Log in</button>
+                    </p>
+
+                    <input type="submit" value="Confirm" class="form_bottom-submit">
+                </div>
+            </form>
+
+            <form action="/" id="logIn-form" class="session_text-form display-none">
+                <div class="label_container">
+                    <label for="logIn-email" class="form_label">
+                        <input type="email" name="email" id="logIn-email" class="form_label-input" placeholder="email">
+                    </label>
+
+                    <label for="logIn-password" class="form_label">
+                        <input type="password" name="userpassword" id="logIn-password" class="form_label-input"
+                            placeholder="password">
+                    </label>
+                </div>
+
+                <div class="form_bottom">
+                    <p class="form_bottom-text">Not registered yet? <button id="signIn-button" class="text_link">Sign
+                            in</button>
+                    </p>
+
+                    <input type="submit" value="Confirm" class="form_bottom-submit">
+                </div>
+            </form>
+        </section>
+
+        <figure class="session_figure">
+            <img id="signIn-image" class="session_figure-image" src="https://i.imgur.com/Zzcol6G.png"
+                alt="A happy girl enjoying Wannachat.">
+
+            <img id="logIn-image" class="session_figure-image display-none" src="https://i.imgur.com/n9O975J.png"
+                alt="A happy girl enjoying Wannachat.">
+
+            <img class="session_figure-icon" src="https://i.imgur.com/viE8qp2.png" alt="Wannachat icon">
+        </figure>
+    </article>
+</div>
+
+<script src="./js/session.js"></script>
