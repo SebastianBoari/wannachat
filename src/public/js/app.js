@@ -1,73 +1,22 @@
 const socket = io()
 
-// DOM
-const form = document.getElementById('chat-form')
+export const form = document.getElementById('chat-form')
+export const inputTextArea = document.getElementById('textArea'); inputTextArea.disabled = true
+export const historyContainer = document.getElementById('chat-history')
 
-const inputTextArea = document.getElementById('textArea')
-inputTextArea.disabled = true
-const modalForm = document.getElementById('modal-form')
-
-const inputUsername = document.getElementById('inputNickName')
-const modal = document.getElementById('modal-container')
-
-const historyContainer = document.getElementById('chat-history')
-const cancelNickname = document.getElementById('cancelNickname')
-
-cancelNickname.addEventListener('click', () => {
-	if (window.confirm('¿Estás seguro de que quieres cerrar la ventana?')) {
-		window.close()
-	}
-})
-
-// Utils
 const getMoment = () => {
 	const date = new Date()
-
 	let hours = date.getHours()
-
 	let minutes = date.getMinutes()
-
 	if(minutes < 10) minutes = '0' + minutes
-
 	const currentMoment = hours + ':' + minutes
-
 	return currentMoment
 }
 
-const toggleModal = () => modal.classList.toggle('display-none')
 
-// Simple user nickname validation:
+// TODO: Logic to get username
+
 let username = ''
-
-const sendUser = async (user) => {
-	await socket.emit('username', user)
-
-	await socket.on('username', (response) => {
-
-		if(response.includes('Error')){
-			alert(`${response}`)
-		} else {
-			toggleModal()
-
-			username = response
-			
-			localStorage.setItem('wannauser', JSON.stringify(username))
-
-			inputTextArea.disabled = false
-		}
-	})
-}
-
-
-modalForm.addEventListener('submit', (e) => {
-	e.preventDefault()
-		
-	sendUser(inputUsername.value)
-			
-	modalForm.reset()
-})
-
-
 
 // Bring chat history on connection:
 const autoScroll = () => {

@@ -1,9 +1,10 @@
-// Dependencies
 import express from 'express'
 import handlebars from 'express-handlebars'
+
 import { Server } from 'socket.io'
-import viewsRouter from './routes/views.router.js'
 import { createSocketMiddleware } from './middlewares/socket.js'
+
+import viewsRouter from './routes/views.routes.js'
 
 const app = express()
 

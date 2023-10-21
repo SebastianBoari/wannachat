@@ -1,4 +1,3 @@
-// DOM
 const chooseSignIn = document.getElementById('signIn')
 const chooseLogIn = document.getElementById('logIn')
 
