@@ -23,11 +23,6 @@
             padding: $space-32;
             border-radius: 6px;
 
-            // NORMAL SHADOW
-            -webkit-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
-            -moz-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
-            box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
-
             &-header {
                 @include flex(column, nowrap, space-between, center, $space-32);
 

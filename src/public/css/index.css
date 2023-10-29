@@ -63,9 +63,6 @@ body {
   width: 38.2rem;
   padding: 3.2rem;
   border-radius: 6px;
-  -webkit-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
 }
 .session_container .session_text-header {
   display: flex;
